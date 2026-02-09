@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-echo "== create bucket"
+echo "== delete bucket"
 
 # Check for bucket name
 if [ -z "$1" ]; then
@@ -10,8 +10,5 @@ fi
 BUCKET_NAME=$1
 
 # https://docs.aws.amazon.com/cli/latest/reference/s3api/create-bucket.html
-aws s3api create-bucket \
---bucket $BUCKET_NAME \
---create-bucket-configuration="LocationConstraint=ap-south-1" \
---query Location \
---output text
+aws s3api delete-bucket \
+--bucket $BUCKET_NAME
